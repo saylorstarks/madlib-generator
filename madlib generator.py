@@ -1,19 +1,20 @@
 import random
 
+#User input  
 verbs = input('Number of verbs: ')
 adverbs = input('Number of adverbs: ')
 nouns = input('Number of nouns: ')
 adjk = input('Number of adjectives: ')
 
-f = open("adj.txt", "r")
+f = open("adj.txt", "r") #opens word list
 
-m = f.readlines()
+m = f.readlines() #reads amount of lines in file
 l = []
 n = []
 
-for x in range(int(adjk)):
-    for i in range(0, len(m)-1):
-        x = m[i]
+for x in range(int(adjk)): #how many words needed 
+    for i in range(0, len(m)-1): #range of document
+        x = m[i] #
         z = len(x)
         a = x[:z-1]
         l.append(a)
@@ -33,14 +34,14 @@ n = []
 
 for x in range(int(adverbs)):
     for i in range(0, len(m)-1):
-        x = m[i]
-        z = len(x)
-        a = x[:z-1]
-        l.append(a)
+        x = m[i] #chooses corrisponding word from list
+        z = len(x) #length of word
+        a = x[:z-1] #word minus \n
+        l.append(a) #adds chosen word to l
                
-    l.append(m[i+1])
-    o = random.choice(l)
-    n.append(o)
+    l.append(m[i+1]) 
+    o = random.choice(l) #random choice from l
+    n.append(o) #adds choice to n
 print("Adverbs are: " + str(n))
 
 f.close()
